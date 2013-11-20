@@ -1,0 +1,13 @@
+*.class
+
+/bin/
+/Logs/
+/Menus/
+/PhoneNumbers/
+.history/
+.metadata/
+
+# Package Files #
+*.jar
+*.war
+*.ear
