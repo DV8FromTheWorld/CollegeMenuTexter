@@ -1,13 +1,20 @@
-*.class
+# Project specific files #
+Config.cfg
 
+# Project specific folders #
 /bin/
 /Logs/
 /Menus/
 /PhoneNumbers/
+
+# Eclipse Folders #
 .history/
 .metadata/
 
 # Package Files #
-*.jar
 *.war
 *.ear
+
+# Java Files#
+*.jar
+*.class
