@@ -1,0 +1,12 @@
+Required Libraries
+==================
+Place the following libraries in this folder
+==================
+JavaMail:
+	Download: http://www.oracle.com/technetwork/java/javamail/index.htm
+	Lib: javax.mail.jar
+	Version: 1.5.1
+Java Activation Framework:
+	Download: http://www.oracle.com/technetwork/java/javase/index-jsp-136939.html
+	Lib: activation.jar
+	Version: 1.1.1
