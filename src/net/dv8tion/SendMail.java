@@ -9,9 +9,14 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
  
-public class SendMail {
-	public static void send(final String username, final String password, String recipient, String subject, String message) {
+public class SendMail 
+{
+	
+	public static void send(final String username, final String password, String recipient, String subject, String message) 
+	{
 		Properties props = new Properties();
+		
+		//For SSL, Cant seem to get it to work though..
 		//props.put("mail.smtp.host", "smtp.gmail.com");
 		//props.put("mail.smtp.socketFactory.port", "465");
 		//props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");

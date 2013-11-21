@@ -20,6 +20,12 @@ public class Core
 {
 	public static Logger logger;
 
+	/**
+	 * Location of the beginning of the program.
+	 * calls folder creation, logger init, and parsing.
+	 * 
+	 * @param args Command Line Arguments
+	 */
 	public static void main(String[] args)
 	{
 		Scanner key = new Scanner(System.in);
@@ -36,6 +42,11 @@ public class Core
 		key.close();
 	}
 
+	/**
+	 * Initializes the logger.
+	 * Logs are specified by Log <date>.txt
+	 * Logs are stored in the Logs folder.
+	 */
 	private static void setupLogger()
 	{
 		logger = Logger.getLogger("Menu-Logger");
@@ -59,6 +70,11 @@ public class Core
 		}
 	}
 
+	/**
+	 * Creates the following folders:
+	 * 		Logs, Menus, PhoneNumbers
+	 * Places them in the root Dir.
+	 */
 	private static void createFolders()
 	{
 		String[] folders = {"Logs", "Menus", "PhoneNumbers"};

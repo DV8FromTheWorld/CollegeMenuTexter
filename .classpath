@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="C:/Users/Austin/Desktop/Java Expirements/LIBS/JavaActivationFramwork-1.1.1/activation.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Austin/Desktop/Java Expirements/LIBS/JavaMail-1.4.7/mail.jar"/>
+	<classpathentry kind="lib" path="Libs/activation.jar" sourcepath="Libs/activation.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/Austin/Desktop/Git%20Repos/LIBS/JavaActivaitonFramwork/docs/javadocs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Libs/javax.mail.jar" sourcepath="Libs/javax.mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
