@@ -7,6 +7,9 @@ Config.cfg
 /Menus/
 /PhoneNumbers/
 
+# Library Folders #
+JAF Docs/
+
 # Eclipse Folders #
 .history/
 .metadata/

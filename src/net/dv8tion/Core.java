@@ -34,11 +34,16 @@ public class Core
 	 */
 	public static void main(String[] args) throws IOException
 	{
-		Scanner key = new Scanner(System.in);
 		createFolders();
 		setupLogger();
 		loadConfig();
+		// send();
+		receive();
+	}
 
+	private static void send()
+	{
+		Scanner key = new Scanner(System.in);
 		AppstateMenuParser.parseTraditions();
 		System.out.println("Enter number and @--.---");
 		String phoneNumber = key.nextLine();
@@ -46,6 +51,12 @@ public class Core
 		String message = key.nextLine();
 		SendMail.send(phoneNumber, "Test", message);
 		key.close();
+	}
+
+	private static void receive()
+	{
+
+		SendMail.readGmail();
 	}
 
 	/**

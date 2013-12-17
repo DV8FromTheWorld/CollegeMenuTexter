@@ -3,10 +3,15 @@ package net.dv8tion;
 import java.util.Properties;
 import java.util.logging.Level;
 
+import javax.mail.BodyPart;
+import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Part;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
+import javax.mail.Store;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -35,8 +40,10 @@ public class SendMail
 		if (emailUsername == null || emailUsername.equals("username@gmail.com")
 				|| emailPassword == null || emailPassword.isEmpty())
 		{
-			Core.logger.log(Level.SEVERE,
-					"Email or password not set.  Cannot send email/text");
+			Core.logger
+					.log(Level.SEVERE,
+							"Email or password not set.  Cannot send email/text\n"
+									+ "Check Options.cfg and set Email and Password options.");
 			return false;
 		}
 		Properties props = new Properties();
@@ -84,6 +91,44 @@ public class SendMail
 		catch (MessagingException e)
 		{
 			throw new RuntimeException(e);
+		}
+	}
+
+	public static void readGmail()
+	{
+		Properties props2 = System.getProperties();
+		props2.setProperty("mail.store.protocol", "imaps");
+		Session session2 = Session.getDefaultInstance(props2, null);
+
+		try
+		{
+			Store store = session2.getStore("imaps");
+			store.connect("imap.gmail.com", emailUsername, emailPassword);
+			Folder folder = store.getFolder("INBOX");
+			folder.open(Folder.READ_ONLY);
+			Message messages[] = folder.getMessages();
+			for (Message mes : messages)
+			{
+				Multipart multipart = (Multipart) mes.getContent();
+				System.out.println(mes.getSubject());
+
+				for (int i = 0; i < multipart.getCount(); i++)
+				{
+					BodyPart bodypart = multipart.getBodyPart(i);
+					if (Part.ATTACHMENT.equalsIgnoreCase(bodypart
+							.getDisposition()))
+					{
+						System.out.println("\tATTATCHMENT: "
+								+ bodypart.toString());
+					}
+				}
+			}
+			folder.close(true);
+			store.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.toString());
 		}
 	}
 }
